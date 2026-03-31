@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACESIS - Explore Space</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+       <div id="navbar-placeholder"></div>
+    </nav>
+
+    <!-- Stars Background -->
+    <div class="stars-container"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding-top: 100px;">
+        <div class="container text-center">
+            <h1 class="glitch" data-text="Explore Space">Explore Space</h1>
+            
+        </div>
+    </section>
+
+    <!-- Solar System Visual -->
+    <section class="solar-system-section">
+        <div class="container">
+            <div class="solar-system">
+                <!-- Sun -->
+                <div class="sun" onclick="showInfo('sun')">
+                    <div class="sun-core"></div>
+                    <div class="sun-glow"></div>
+                    <span class="label">Sun</span>
+                </div>
+
+                <!-- Planets Orbits -->
+                <div class="orbit mercury-orbit">
+                    <div class="planet mercury" onclick="showInfo('mercury')">
+                        <span class="label">Mercury</span>
+                    </div>
+                </div>
+
+                <div class="orbit venus-orbit">
+                    <div class="planet venus" onclick="showInfo('venus')">
+                        <span class="label">Venus</span>
+                    </div>
+                </div>
+
+                <div class="orbit earth-orbit">
+                    <div class="planet earth" onclick="showInfo('earth')">
+                        <span class="label">Earth</span>
+                    </div>
+                </div>
+
+                <div class="orbit mars-orbit">
+                    <div class="planet mars" onclick="showInfo('mars')">
+                        <span class="label">Mars</span>
+                    </div>
+                </div>
+
+                <div class="orbit jupiter-orbit">
+                    <div class="planet jupiter" onclick="showInfo('jupiter')">
+                        <span class="label">Jupiter</span>
+                    </div>
+                </div>
+
+                <div class="orbit saturn-orbit">
+                    <div class="planet saturn" onclick="showInfo('saturn')">
+                        <div class="ring"></div>
+                        <span class="label">Saturn</span>
+                    </div>
+                </div>
+
+                <div class="orbit uranus-orbit">
+                    <div class="planet uranus" onclick="showInfo('uranus')">
+                        <span class="label">Uranus</span>
+                    </div>
+                </div>
+
+                <div class="orbit neptune-orbit">
+                    <div class="planet neptune" onclick="showInfo('neptune')">
+                        <span class="label">Neptune</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="row" id="info-cards">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Space View -->
+    <section class="section" style="background: rgba(0,0,0,0.3);">
+        <div class="container text-center">
+            <h2>360° Space View</h2>
+            <p>Drag to explore the cosmos</p>
+            <div class="space-viewer" id="space-viewer">
+                <div class="viewer-placeholder">
+                    <i class="fas fa-cube fa-5x"></i>
+                    <p>3D Space View (Click to explore)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+
+    <style>
+        /* Solar System Styles */
+        .solar-system {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sun {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background: #feca57;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .sun-core {
+            width: 100%;
+            height: 100%;
+            background: #ff9f43;
+            border-radius: 50%;
+            box-shadow: 0 0 50px #ff9f43;
+        }
+
+        .sun-glow {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(255,159,67,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: rotate linear infinite;
+        }
+
+        .mercury-orbit { width: 150px; height: 150px; animation-duration: 8s; }
+        .venus-orbit { width: 200px; height: 200px; animation-duration: 12s; }
+        .earth-orbit { width: 250px; height: 250px; animation-duration: 16s; }
+        .mars-orbit { width: 300px; height: 300px; animation-duration: 20s; }
+        .jupiter-orbit { width: 400px; height: 400px; animation-duration: 30s; }
+        .saturn-orbit { width: 480px; height: 480px; animation-duration: 40s; }
+        .uranus-orbit { width: 560px; height: 560px; animation-duration: 50s; }
+        .neptune-orbit { width: 640px; height: 640px; animation-duration: 60s; }
+
+        .planet {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .planet:hover { transform: translateX(-50%) scale(1.5); }
+
+        .mercury { width: 12px; height: 12px; background: #b8b8d0; top: -6px; }
+        .venus { width: 14px; height: 14px; background: #feca57; top: -7px; }
+        .earth { width: 16px; height: 16px; background: #4a90e2; top: -8px; }
+        .mars { width: 14px; height: 14px; background: #ff6b6b; top: -7px; }
+        .jupiter { width: 30px; height: 30px; background: #d4a373; top: -15px; }
+        .saturn { width: 26px; height: 26px; background: #e9c46a; top: -13px; position: relative; }
+        .uranus { width: 22px; height: 22px; background: #80d4ff; top: -11px; }
+        .neptune { width: 22px; height: 22px; background: #4169e1; top: -11px; }
+
+        .ring {
+            position: absolute;
+            width: 40px;
+            height: 10px;
+            border: 2px solid #e9c46a;
+            border-radius: 50%;
+            top: 8px;
+            left: -7px;
+            transform: rotateX(75deg);
+        }
+
+        .label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+            color: rgba(255,255,255,0.7);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .planet:hover .label { opacity: 1; }
+
+        .space-viewer {
+            height: 400px;
+            background: linear-gradient(45deg, #0a0a2a, #1a1a3a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .solar-system { height: 400px; }
+            .neptune-orbit { width: 400px; height: 400px; }
+            .uranus-orbit { width: 350px; height: 350px; }
+            .saturn-orbit { width: 300px; height: 300px; }
+        }
+    </style>
+
+    <script>
+        // Planet info database
+        const planetInfo = {
+            sun: {
+                name: 'Sun',
+                desc: 'The star at the center of our solar system',
+                temp: '5,500°C (surface)',
+                diameter: '1.39 million km',
+                age: '4.6 billion years'
+            },
+            mercury: {
+                name: 'Mercury',
+                desc: 'The smallest and fastest planet',
+                temp: '-173°C to 427°C',
+                distance: '57.9 million km from Sun',
+                moons: 0
+            },
+            venus: {
+                name: 'Venus',
+                desc: 'Earth\'s twin with toxic atmosphere',
+                temp: '462°C',
+                distance: '108.2 million km from Sun',
+                moons: 0
+            },
+            earth: {
+                name: 'Earth',
+                desc: 'Our home planet, the only known place with life',
+                temp: '15°C (average)',
+                distance: '149.6 million km from Sun',
+                moons: 1
+            },
+            mars: {
+                name: 'Mars',
+                desc: 'The Red Planet, target for future missions',
+                temp: '-60°C',
+                distance: '227.9 million km from Sun',
+                moons: 2
+            },
+            jupiter: {
+                name: 'Jupiter',
+                desc: 'The largest planet with 79 moons',
+                temp: '-110°C',
+                distance: '778.5 million km from Sun',
+                moons: 79
+            },
+            saturn: {
+                name: 'Saturn',
+                desc: 'Famous for its beautiful rings',
+                temp: '-140°C',
+                distance: '1.4 billion km from Sun',
+                moons: 82
+            },
+            uranus: {
+                name: 'Uranus',
+                desc: 'The ice giant that rotates on its side',
+                temp: '-195°C',
+                distance: '2.9 billion km from Sun',
+                moons: 27
+            },
+            neptune: {
+                name: 'Neptune',
+                desc: 'The windiest planet in our solar system',
+                temp: '-200°C',
+                distance: '4.5 billion km from Sun',
+                moons: 14
+            }
+        };
+
+        function showInfo(planet) {
+            const info = planetInfo[planet];
+            const infoCards = document.getElementById('info-cards');
+            
+            infoCards.innerHTML = `
+                <div class="col-12">
+                    <div class="card fade-in">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>${info.name}</h2>
+                                <p>${info.desc}</p>
+                                <ul class="list-unstyled">
+                                    <li><strong>Temperature:</strong> ${info.temp}</li>
+                                    <li><strong>Distance from Sun:</strong> ${info.distance}</li>
+                                    <li><strong>Moons:</strong> ${info.moons}</li>
+                                </ul>
+                                <button class="btn btn-primary" onclick="exploreMore('${planet}')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div class="planet-large ${planet}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Scroll to info
+            infoCards.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function exploreMore(planet) {
+            window.location.href = `planets.html#${planet}`;
+        }
+
+        // 3D Viewer placeholder
+        document.getElementById('space-viewer')?.addEventListener('click', function() {
+            alert('3D Space Viewer coming soon! Check back later.');
+        });
+
+        // Random space fact
+        const facts = [
+            "A day on Venus is longer than its year",
+            "Neutron stars can spin 600 times per second",
+            "There's a planet made of diamonds",
+            "The Sun makes up 99.86% of our solar system's mass",
+            "One million Earths could fit inside the Sun"
+        ];
+        
+        setInterval(() => {
+            const fact = facts[Math.floor(Math.random() * facts.length)];
+            const toast = document.createElement('div');
+            toast.className = 'fact-toast';
+            toast.textContent = '💫 ' + fact;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => toast.remove(), 3000);
+        }, 15000);
+    </script>
+</body>
+</html>
