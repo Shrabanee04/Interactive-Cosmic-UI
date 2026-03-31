@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACESIS - Galaxies</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+     <!-- Navbar -->
+    <nav class="navbar">
+       <div id="navbar-placeholder"></div>
+    </nav>
+
+    <!-- Stars Background -->
+    <div class="stars-container"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding-top: 100px;">
+        <div class="container text-center">
+            <h1 class="glitch" data-text="Galaxies">Galaxies</h1>
+            <p class="lead">Discover the magnificent islands of stars in the universe</p>
+        </div>
+    </section>
+
+    <!-- Galaxy Facts -->
+    <section class="container">
+        <div class="galaxy-facts">
+            <div class="fact-card">
+                <i class="fas fa-star"></i>
+                <h3>100+ Billion</h3>
+                <p>Galaxies in Observable Universe</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-rocket"></i>
+                <h3>2.5 Million LY</h3>
+                <p>Distance to Andromeda</p>
+            </div>
+            <div class="fact-card">
+                <i class="fas fa-clock"></i>
+                <h3>13.6 Billion Years</h3>
+                <p>Oldest Known Galaxy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galaxy Types -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Types of Galaxies</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="type-card">
+                        <div class="type-icon spiral"></div>
+                        <h3>Spiral Galaxies</h3>
+                        <p>Have beautiful spiral arms winding out from center. Our Milky Way is a spiral galaxy.</p>
+                        <span class="example">Example: Milky Way, Andromeda</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="type-card">
+                        <div class="type-icon elliptical"></div>
+                        <h3>Elliptical Galaxies</h3>
+                        <p>Smooth, oval-shaped galaxies with older stars. Range from circular to elongated.</p>
+                        <span class="example">Example: M87, Centaurus A</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="type-card">
+                        <div class="type-icon irregular"></div>
+                        <h3>Irregular Galaxies</h3>
+                        <p>No distinct shape, often chaotic in appearance. Usually smaller galaxies.</p>
+                        <span class="example">Example: Large Magellanic Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Galaxies Grid -->
+    <section class="section" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <h2 class="section-title">Featured Galaxies</h2>
+            <div class="galaxy-grid">
+                <!-- Milky Way -->
+                <div class="galaxy-card" onclick="showGalaxy('milkyway')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/milkyway.jpg" alt="Milky Way" onerror="this.src='https://via.placeholder.com/400x250/6c5ce7/ffffff?text=🌌+Milky+Way'">
+                        <span class="galaxy-badge">Home Galaxy</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Milky Way</h3>
+                        <p class="type">Spiral Galaxy</p>
+                        <p class="distance">100,000 light-years across</p>
+                        <p class="desc">Our home galaxy, containing 100-400 billion stars.</p>
+                    </div>
+                </div>
+
+                <!-- Andromeda -->
+                <div class="galaxy-card" onclick="showGalaxy('andromeda')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/andromeda.jpg" alt="Andromeda" onerror="this.src='https://via.placeholder.com/400x250/a463f5/ffffff?text=🌌+Andromeda'">
+                        <span class="galaxy-badge">Nearest Major</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Andromeda</h3>
+                        <p class="type">Spiral Galaxy</p>
+                        <p class="distance">2.5 million light-years away</p>
+                        <p class="desc">Closest major galaxy to Milky Way, on collision course.</p>
+                    </div>
+                </div>
+
+                <!-- Sombrero -->
+                <div class="galaxy-card" onclick="showGalaxy('sombrero')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/sombrero.jpg" alt="Sombrero Galaxy" onerror="this.src='https://via.placeholder.com/400x250/ff6b6b/ffffff?text=🌌+Sombrero'">
+                        <span class="galaxy-badge">Unusual Shape</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Sombrero Galaxy</h3>
+                        <p class="type">Spiral Galaxy</p>
+                        <p class="distance">28 million light-years away</p>
+                        <p class="desc">Famous for its bright nucleus and large central bulge.</p>
+                    </div>
+                </div>
+
+                <!-- Whirlpool -->
+                <div class="galaxy-card" onclick="showGalaxy('whirlpool')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/whirlpool.jpg" alt="Whirlpool Galaxy" onerror="this.src='https://via.placeholder.com/400x250/00b894/ffffff?text=🌌+Whirlpool'">
+                        <span class="galaxy-badge">Interacting</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Whirlpool Galaxy</h3>
+                        <p class="type">Spiral Galaxy</p>
+                        <p class="distance">23 million light-years away</p>
+                        <p class="desc">Classic spiral galaxy with a smaller companion.</p>
+                    </div>
+                </div>
+
+                <!-- Triangulum -->
+                <div class="galaxy-card" onclick="showGalaxy('triangulum')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/triangulum.jpg" alt="Triangulum Galaxy" onerror="this.src='https://via.placeholder.com/400x250/feca57/ffffff?text=🌌+Triangulum'">
+                        <span class="galaxy-badge">Local Group</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Triangulum Galaxy</h3>
+                        <p class="type">Spiral Galaxy</p>
+                        <p class="distance">2.7 million light-years away</p>
+                        <p class="desc">Third largest galaxy in our Local Group.</p>
+                    </div>
+                </div>
+
+                <!-- Cartwheel -->
+                <div class="galaxy-card" onclick="showGalaxy('cartwheel')">
+                    <div class="galaxy-img">
+                        <img src="images/galaxies/cartwheel.jpg" alt="Cartwheel Galaxy" onerror="this.src='https://via.placeholder.com/400x250/d63031/ffffff?text=🌌+Cartwheel'">
+                        <span class="galaxy-badge">Ring Galaxy</span>
+                    </div>
+                    <div class="galaxy-info">
+                        <h3>Cartwheel Galaxy</h3>
+                        <p class="type">Ring Galaxy</p>
+                        <p class="distance">500 million light-years away</p>
+                        <p class="desc">Formed by a galactic collision, looks like a wheel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milky Way Facts -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Our Milky Way</h2>
+                    <p>The Milky Way is our home galaxy, a vast collection of stars, gas, and dust held together by gravity.</p>
+                    <ul class="milkyway-facts">
+                        <li><i class="fas fa-star"></i> Contains 100-400 billion stars</li>
+                        <li><i class="fas fa-sun"></i> Sun is 26,000 light-years from center</li>
+                        <li><i class="fas fa-clock"></i> Takes 230 million years to orbit center</li>
+                        <li><i class="fas fa-expand"></i> 100,000 light-years in diameter</li>
+                        <li><i class="fas fa-black-hole"></i> Supermassive black hole at center</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="milkyway-art">
+                        <div class="galaxy-spiral"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galaxy Comparison -->
+    <section class="section" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <h2 class="section-title">Galaxy Size Comparison</h2>
+            <div class="comparison-container">
+                <div class="comparison-item">
+                    <span class="galaxy-name">IC 1101</span>
+                    <div class="size-bar" style="width: 100%;"></div>
+                    <span class="size">5.5 million LY</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="galaxy-name">Andromeda</span>
+                    <div class="size-bar" style="width: 80%;"></div>
+                    <span class="size">220,000 LY</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="galaxy-name">Milky Way</span>
+                    <div class="size-bar" style="width: 70%;"></div>
+                    <span class="size">100,000 LY</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="galaxy-name">Triangulum</span>
+                    <div class="size-bar" style="width: 40%;"></div>
+                    <span class="size">60,000 LY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+
+    <style>
+        /* Galaxy Facts */
+        .galaxy-facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .fact-card {
+            background: rgba(108, 92, 231, 0.1);
+            border: 1px solid #6c5ce7;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .fact-card i {
+            font-size: 2.5rem;
+            color: #6c5ce7;
+            margin-bottom: 1rem;
+        }
+        
+        .fact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Type Cards */
+        .type-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #6c5ce7;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .type-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .type-icon.spiral {
+            background: linear-gradient(45deg, #6c5ce7, #a463f5);
+            animation: rotate 10s linear infinite;
+        }
+        
+        .type-icon.spiral::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: #0a0a2a;
+            border-radius: 50%;
+        }
+        
+        .type-icon.spiral::after {
+            content: '🌀';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        
+        .type-icon.elliptical {
+            background: #ff6b6b;
+            border-radius: 60% 40% 50% 50%;
+        }
+        
+        .type-icon.elliptical::after {
+            content: '⚪';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        
+        .type-icon.irregular {
+            background: #00b894;
+            border-radius: 40% 60% 30% 70%;
+        }
+        
+        .type-icon.irregular::after {
+            content: '⭐';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+        
+        .example {
+            display: block;
+            margin-top: 1rem;
+            color: #6c5ce7;
+            font-size: 0.9rem;
+        }
+        
+        /* Galaxy Grid */
+        .galaxy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .galaxy-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #6c5ce7;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .galaxy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+        }
+        
+        .galaxy-img {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .galaxy-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        
+        .galaxy-card:hover .galaxy-img img {
+            transform: scale(1.1);
+        }
+        
+        .galaxy-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #6c5ce7;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .galaxy-info {
+            padding: 1.5rem;
+        }
+        
+        .galaxy-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .type {
+            color: #6c5ce7;
+            font-weight: 500;
+        }
+        
+        .distance {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        
+        /* Milky Way Facts */
+        .milkyway-facts {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .milkyway-facts li {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .milkyway-facts i {
+            color: #6c5ce7;
+            width: 25px;
+        }
+        
+        .milkyway-art {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        
+        .galaxy-spiral {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at 30% 50%, #6c5ce7, transparent 70%);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .galaxy-spiral::before,
+        .galaxy-spiral::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(108,92,231,0.3);
+            border-radius: 50%;
+        }
+        
+        .galaxy-spiral::before {
+            transform: rotate(45deg);
+        }
+        
+        .galaxy-spiral::after {
+            transform: rotate(-45deg);
+        }
+        
+        /* Comparison */
+        .comparison-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .comparison-item {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .galaxy-name {
+            width: 100px;
+        }
+        
+        .size-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #6c5ce7, #a463f5);
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        
+        .size {
+            width: 100px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        /* Modal */
+        .galaxy-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .galaxy-facts {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .galaxy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-item {
+                flex-wrap: wrap;
+            }
+            
+            .galaxy-name {
+                width: auto;
+            }
+            
+            .size {
+                width: auto;
+            }
+        }
+    </style>
+
+    <script>
+        function showGalaxy(name) {
+            const galaxies = {
+                milkyway: {
+                    name: 'Milky Way Galaxy',
+                    type: 'Barred Spiral Galaxy',
+                    distance: '100,000 light-years',
+                    stars: '100-400 billion',
+                    age: '13.6 billion years',
+                    fact: 'Our solar system is located in the Orion Arm, about 26,000 light-years from the galactic center.'
+                },
+                andromeda: {
+                    name: 'Andromeda Galaxy',
+                    type: 'Spiral Galaxy',
+                    distance: '2.5 million light-years',
+                    stars: '1 trillion',
+                    age: '10 billion years',
+                    fact: 'Andromeda is on a collision course with Milky Way and they will merge in about 4.5 billion years.'
+                }
+            };
+            
+            const galaxy = galaxies[name] || galaxies.milkyway;
+            
+            const modal = document.createElement('div');
+            modal.className = 'galaxy-modal';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 500px;">
+                    <span class="close-modal" onclick="this.closest('.galaxy-modal').remove()">&times;</span>
+                    <h2>${galaxy.name}</h2>
+                    <p><strong>Type:</strong> ${galaxy.type}</p>
+                    <p><strong>Size:</strong> ${galaxy.distance}</p>
+                    <p><strong>Stars:</strong> ${galaxy.stars}</p>
+                    <p><strong>Age:</strong> ${galaxy.age}</p>
+                    <p><strong>Fun Fact:</strong> ${galaxy.fact}</p>
+                    <button class="btn btn-primary mt-3" onclick="this.closest('.galaxy-modal').remove()">Close</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>
