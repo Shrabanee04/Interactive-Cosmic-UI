@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your space knowledge with SPACESIS Quiz - 20 questions!">
+    <title>SPACESIS - Space Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .quiz-wrapper { max-width: 750px; margin: 0 auto; padding: 2rem; }
+
+        /* Start Screen */
+        .quiz-start-card {
+            background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(10,10,42,0.9));
+            border: 1px solid #6c5ce7;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .quiz-start-card i { color: #6c5ce7; margin-bottom: 1.5rem; }
+        .quiz-start-card h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .quiz-start-card p { color: #b8b8d0; margin-bottom: 0.5rem; }
+        .quiz-rules { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; text-align: left; }
+        .quiz-rules li { color: #b8b8d0; margin: 0.5rem 0; }
+
+        /* Quiz Game */
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+        .quiz-progress { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .quiz-progress-bar { height: 100%; background: linear-gradient(90deg, #6c5ce7, #a463f5); border-radius: 10px; transition: width 0.4s ease; }
+
+        .timer-box {
+            width: 55px; height: 55px;
+            border: 3px solid #6c5ce7;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 700;
+            color: #6c5ce7;
+        }
+
+        .question-card { background: rgba(255,255,255,0.05); border: 1px solid #6c5ce7; border-radius: 15px; padding: 2rem; margin-bottom: 1.5rem; }
+        .question-card h3 { font-size: 1.3rem; line-height: 1.6; }
+
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .quiz-option {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid #2a2a4a;
+            border-radius: 10px;
+            padding: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .quiz-option:hover:not(:disabled) { border-color: #6c5ce7; background: rgba(108,92,231,0.2); transform: translateY(-2px); }
+        .quiz-option.correct { background: rgba(0,184,148,0.3); border-color: #00b894; }
+        .quiz-option.wrong { background: rgba(214,48,49,0.3); border-color: #d63031; }
+        .quiz-option:disabled { cursor: not-allowed; }
+
+        /* Result */
+        .result-card { background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(10,10,42,0.9)); border: 1px solid #6c5ce7; border-radius: 20px; padding: 3rem; text-align: center; }
+        .result-emoji { font-size: 5rem; margin-bottom: 1rem; }
+        .result-score { font-size: 3.5rem; font-weight: 700; color: #6c5ce7; }
+        .result-percent { font-size: 1.5rem; color: #b8b8d0; }
+
+        @media (max-width: 576px) {
+            .quiz-options { grid-template-columns: 1fr; }
+            .quiz-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <div class="stars-container"></div>
+
+    <section class="page-header">
+        <div class="container text-center">
+            <h1 class="glitch" data-text="Space Quiz">Space Quiz</h1>
+            <p class="lead">Test your knowledge of the cosmos!</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+        <div class="container">
+            <div class="quiz-wrapper">
+
+                <!-- Start Screen -->
+                <div id="quiz-start">
+                    <div class="quiz-start-card">
+                        <i class="fas fa-rocket fa-4x"></i>
+                        <h2>Are You Ready?</h2>
+                        <p>20 questions about space, planets & exploration</p>
+                        <ul class="quiz-rules list-unstyled">
+                            <li><i class="fas fa-clock text-purple"></i> &nbsp;20 seconds per question</li>
+                            <li><i class="fas fa-star text-purple"></i> &nbsp;1 point per correct answer</li>
+                            <li><i class="fas fa-forward text-purple"></i> &nbsp;Unanswered questions score 0</li>
+                            <li><i class="fas fa-trophy text-purple"></i> &nbsp;Get rated at the end!</li>
+                        </ul>
+                        <button class="btn btn-primary btn-lg" onclick="startQuiz()">
+                            <i class="fas fa-rocket"></i> Launch Quiz!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Game -->
+                <div id="quiz-game" style="display:none;">
+                    <div class="quiz-header">
+                        <span id="question-num" class="text-muted">Question 1 of 20</span>
+                        <span id="score-display" style="color:#6c5ce7;font-weight:600;">Score: 0</span>
+                        <div class="timer-box" id="timer">20</div>
+                    </div>
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="progress-bar" style="width:0%"></div>
+                    </div>
+                    <div class="question-card">
+                        <h3 id="question-text"></h3>
+                    </div>
+                    <div class="quiz-options" id="options"></div>
+                    <button class="btn btn-primary w-100" id="next-btn" onclick="nextQuestion()" style="display:none;">
+                        Next Question <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Result Screen -->
+                <div id="quiz-result" style="display:none;">
+                    <div class="result-card">
+                        <div class="result-emoji" id="result-emoji">🚀</div>
+                        <h2>Quiz Complete!</h2>
+                        <div class="result-score" id="final-score">0 / 20</div>
+                        <div class="result-percent" id="score-percent">0%</div>
+                        <p id="result-message" class="mt-3 mb-4" style="color:#b8b8d0;font-size:1.1rem;"></p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <button class="btn btn-primary" onclick="restartQuiz()"><i class="fas fa-redo"></i> Try Again</button>
+                            <a href="index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Home</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
