@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACESIS - Famous Astronauts</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+     <!-- Navbar -->
+    <nav class="navbar">
+       <div id="navbar-placeholder"></div>
+    </nav>
+
+    <!-- Stars Background -->
+    <div class="stars-container"></div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding-top: 100px;">
+        <div class="container text-center">
+            <h1 class="glitch" data-text="Famous Astronauts">Famous Astronauts</h1>
+            <p class="lead">Meet the brave explorers who ventured into space</p>
+        </div>
+    </section>
+
+    <!-- Featured Astronaut -->
+    <section class="section">
+        <div class="container">
+            <div class="featured-astronaut">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center">
+                        <div class="featured-image">
+                            <img src="images/astronauts/neil-armstrong.jpg" alt="Neil Armstrong" onerror="this.src='https://via.placeholder.com/300/6c5ce7/ffffff?text=👨‍🚀'">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h2>Neil Armstrong</h2>
+                        <p class="highlight">First person to walk on the Moon</p>
+                        <p>Neil Armstrong was an American astronaut and the first person to walk on the Moon. He was also an aerospace engineer, naval aviator, test pilot, and university professor.</p>
+                        <div class="mission-stats">
+                            <div class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span>1930-2012</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rocket"></i>
+                                <span>Apollo 11</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>8 days in space</span>
+                            </div>
+                        </div>
+                        <blockquote>
+                            "That's one small step for man, one giant leap for mankind."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Astronauts Grid -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">More Astronauts</h2>
+            <div class="row" id="astronauts-grid">
+                <!-- Astronaut 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('buzz')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/buzz-aldrin.jpg" alt="Buzz Aldrin" onerror="this.src='https://via.placeholder.com/300/a463f5/ffffff?text=👨‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Buzz Aldrin</h3>
+                            <p class="role">Apollo 11 Astronaut</p>
+                            <p>Second person to walk on the Moon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Astronaut 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('yuri')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/yuri-gagarin.jpg" alt="Yuri Gagarin" onerror="this.src='https://via.placeholder.com/300/ff6b6b/ffffff?text=👨‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Yuri Gagarin</h3>
+                            <p class="role">Soviet Cosmonaut</p>
+                            <p>First human in space</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Astronaut 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('kalpana')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/kalpana-chawla.jpg" alt="Kalpana Chawla" onerror="this.src='https://via.placeholder.com/300/00b894/ffffff?text=👩‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Kalpana Chawla</h3>
+                            <p class="role">NASA Astronaut</p>
+                            <p>First Indian-origin woman in space</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Astronaut 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('sally')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/sally-ride.jpg" alt="Sally Ride" onerror="this.src='https://via.placeholder.com/300/feca57/ffffff?text=👩‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Sally Ride</h3>
+                            <p class="role">NASA Astronaut</p>
+                            <p>First American woman in space</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Astronaut 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('sunita')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/sunita-williams.jpg" alt="Sunita Williams" onerror="this.src='https://via.placeholder.com/300/6c5ce7/ffffff?text=👩‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Sunita Williams</h3>
+                            <p class="role">NASA Astronaut</p>
+                            <p>Holds record for longest spaceflight by woman</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Astronaut 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="astronaut-card" onclick="showAstronaut('alan')">
+                        <div class="astronaut-img">
+                            <img src="images/astronauts/alan-shepard.jpg" alt="Alan Shepard" onerror="this.src='https://via.placeholder.com/300/d63031/ffffff?text=👨‍🚀'">
+                        </div>
+                        <div class="astronaut-info">
+                            <h3>Alan Shepard</h3>
+                            <p class="role">NASA Astronaut</p>
+                            <p>First American in space</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <h2 class="section-title">Space Exploration Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1961</div>
+                    <div class="content">
+                        <h4>Yuri Gagarin becomes first human in space</h4>
+                        <p>Vostok 1 mission - 108 minutes in space</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1969</div>
+                    <div class="content">
+                        <h4>Apollo 11 lands on Moon</h4>
+                        <p>Neil Armstrong and Buzz Aldrin walk on lunar surface</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1983</div>
+                    <div class="content">
+                        <h4>Sally Ride becomes first American woman in space</h4>
+                        <p>Space Shuttle Challenger mission STS-7</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1997</div>
+                    <div class="content">
+                        <h4>Kalpana Chawla's first space mission</h4>
+                        <p>Space Shuttle Columbia flight STS-87</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+
+    <style>
+        /* Featured Astronaut */
+        .featured-astronaut {
+            background: linear-gradient(135deg, rgba(108,92,231,0.2), rgba(10,10,42,0.9));
+            border: 1px solid #6c5ce7;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-image {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #6c5ce7;
+            box-shadow: 0 0 50px rgba(108,92,231,0.5);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .highlight {
+            color: #6c5ce7;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .mission-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .mission-stats .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .mission-stats i {
+            color: #6c5ce7;
+        }
+        
+        blockquote {
+            font-style: italic;
+            color: #a463f5;
+            border-left: 3px solid #6c5ce7;
+            padding-left: 1rem;
+            margin-top: 1rem;
+        }
+        
+        /* Astronaut Cards */
+        .astronaut-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #6c5ce7;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .astronaut-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(108,92,231,0.5);
+        }
+        
+        .astronaut-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .astronaut-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        
+        .astronaut-card:hover .astronaut-img img {
+            transform: scale(1.1);
+        }
+        
+        .astronaut-info {
+            padding: 1.5rem;
+        }
+        
+        .astronaut-info h3 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .role {
+            color: #6c5ce7;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #6c5ce7, transparent);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 2rem;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item .year {
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background: #6c5ce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 0 30px #6c5ce7;
+        }
+        
+        .timeline-item:nth-child(odd) .year {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .year {
+            left: -40px;
+        }
+        
+        .timeline-item .content {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #6c5ce7;
+        }
+        
+        /* Modal */
+        .astronaut-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a3a, #0a0a2a);
+            max-width: 800px;
+            width: 90%;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #6c5ce7;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .featured-astronaut {
+                padding: 1.5rem;
+            }
+            
+            .featured-image {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .mission-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-item .year {
+                left: 10px !important;
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+            
+            .astronaut-img {
+                height: 200px;
+            }
+        }
+    </style>
+
+    <script>
+        // Astronaut data
+        const astronauts = {
+            neil: {
+                name: 'Neil Armstrong',
+                birth: '1930',
+                death: '2012',
+                country: 'USA',
+                mission: 'Apollo 11',
+                date: 'July 20, 1969',
+                achievement: 'First person to walk on Moon',
+                quote: "That's one small step for man, one giant leap for mankind.",
+                bio: 'Neil Armstrong was an American astronaut and aeronautical engineer who became the first person to walk on the Moon. He was also a naval aviator, test pilot, and university professor.',
+                image: 'images/astronauts/neil-armstrong.jpg'
+            },
+            buzz: {
+                name: 'Buzz Aldrin',
+                birth: '1930',
+                country: 'USA',
+                mission: 'Apollo 11',
+                date: 'July 20, 1969',
+                achievement: 'Second person to walk on Moon',
+                quote: "Beautiful view. Magnificent desolation.",
+                bio: 'Buzz Aldrin is an American former astronaut, engineer and fighter pilot. He made three spacewalks as pilot of the 1966 Gemini 12 mission, and was the Lunar Module Eagle pilot on the 1969 Apollo 11 mission.',
+                  image: 'images/astronauts/buzz-aldrin.jpg'
+            },
+            yuri: {
+                name: 'Yuri Gagarin',
+                birth: '1934',
+                death: '1968',
+                country: 'Soviet Union',
+                mission: 'Vostok 1',
+                date: 'April 12, 1961',
+                achievement: 'First human in space',
+                quote: "The Earth is blue. How wonderful. It is amazing.",
+                bio: 'Yuri Gagarin was a Soviet pilot and cosmonaut who became the first human to journey into outer space. His Vostok 1 spacecraft completed one orbit of Earth.',
+                image: 'images/astronauts/yuri-gagarin.jpg'            
+            },
+            kalpana: {
+                name: 'Kalpana Chawla',
+                birth: '1961',
+                death: '2003',
+                country: 'India/USA',
+                mission: 'STS-87, STS-107',
+                achievement: 'First Indian-origin woman in space',
+                quote: "You are just your intelligence.",
+                bio: 'Kalpana Chawla was an American astronaut of Indian origin. She first flew on Space Shuttle Columbia in 1997, and died in the Columbia disaster in 2003.',
+                image: 'images/astronauts/kalpana-chawla.jpg'
+            },
+            sally: {
+        name: 'Sally Ride',
+        birth: '1951', death: '2012',
+        country: 'USA',
+        mission: 'STS-7',
+        date: 'June 18, 1983',
+        achievement: 'First American woman in space',
+        quote: "The stars don't look bigger, but they do look brighter.",
+        bio: 'Sally Ride was an American astronaut and physicist who became the first American woman in space aboard Space Shuttle Challenger.',
+        image: 'images/astronauts/sally-ride.jpg'
+    },
+    sunita: {
+        name: 'Sunita Williams',
+        birth: '1965',
+        country: 'USA',
+        mission: 'STS-116, Expedition 14/15',
+        date: 'December 9, 2006',
+        achievement: 'Longest spaceflight record by a woman (at the time)',
+        quote: "I felt like I was supposed to be there — in space.",
+        bio: 'Sunita Williams is an American astronaut who has spent over 300 days in space across multiple missions to the ISS.',
+         image: 'images/astronauts/sunita-williams.jpg'
+    },
+    alan: {
+        name: 'Alan Shepard',
+        birth: '1923', death: '1998',
+        country: 'USA',
+        mission: 'Freedom 7, Apollo 14',
+        date: 'May 5, 1961',
+        achievement: 'First American in space',
+        quote: "It's a very sobering feeling to be up in space and realize one's total helplessness.",
+        bio: 'Alan Shepard was an American astronaut and naval aviator who became the first American to travel into space in 1961.',
+        image: 'images/astronauts/alan-shepard.jpg'
+    }
+        };
+
+        function showAstronaut(id) {
+    const astro = astronauts[id];
+    if (!astro) return;
+
+    // Remove any existing modal
+    document.querySelectorAll('.astronaut-modal').forEach(m => m.remove());
+
+    const modal = document.createElement('div');
+    modal.className = 'astronaut-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal" 
+                onclick="this.closest('.astronaut-modal').remove()">&times;</span>
+            <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                    <img 
+                        src="${astro.image}" 
+                        alt="${astro.name}"
+                        style="width:100%;
+                               max-width:250px;
+                               height:280px;
+                               object-fit:cover;
+                               border-radius:15px;
+                               border:2px solid #6c5ce7;"
+                        onerror="this.src='https://via.placeholder.com/250x280/6c5ce7/ffffff?text=👨‍🚀'">
+                </div>
+                <div class="col-md-8">
+                    <h2 style="color:white;">${astro.name}</h2>
+                    <p><strong style="color:#6c5ce7;">Born:</strong> 
+                        ${astro.birth}${astro.death ? ' - ' + astro.death : ''}
+                    </p>
+                    <p><strong style="color:#6c5ce7;">Country:</strong> ${astro.country}</p>
+                    <p><strong style="color:#6c5ce7;">Mission:</strong> ${astro.mission}</p>
+                    <p><strong style="color:#6c5ce7;">Date:</strong> ${astro.date || 'N/A'}</p>
+                    <p><strong style="color:#6c5ce7;">Achievement:</strong> ${astro.achievement}</p>
+                    <blockquote style="border-left:3px solid #6c5ce7;
+                                       padding-left:1rem;
+                                       color:#a463f5;
+                                       font-style:italic;
+                                       margin:1rem 0;">
+                        "${astro.quote}"
+                    </blockquote>
+                    <p style="color:#b8b8d0;">${astro.bio}</p>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Close on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+}
+
+        // Add scroll animation
+        const cards = document.querySelectorAll('.astronaut-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
